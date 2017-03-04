@@ -15,7 +15,7 @@
 Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
 
 ## Slides
-- Week 2: Object recognition ( [google slides] )(https://docs.google.com/presentation/d/1vxO2lUGGYYm7yVjZjYvC0wNX4iJOQ6GoatuUw1deRxo/edit?usp=sharing)
+- Week 2: Object recognition [google slides](https://docs.google.com/presentation/d/1vxO2lUGGYYm7yVjZjYvC0wNX4iJOQ6GoatuUw1deRxo/edit?usp=sharing)
 - Week 3: Object detection
   https://docs.google.com/presentation/d/13U6bP7de293dzYGg2hDxrb1G0avuuknWLXXqld0XJSc/edit?usp=sharing
 - Week 4: Object detection
