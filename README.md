@@ -15,7 +15,7 @@
 Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
 
 ## Slides
-- Week 2: Object recognition
+- Week 2: Object recognition https://docs.google.com/presentation/d/1vxO2lUGGYYm7yVjZjYvC0wNX4iJOQ6GoatuUw1deRxo/edit?usp=sharing
 - Week 3: Object detection
 - Week 4: Object detection
 - Week 5: Image semantic segmentation
