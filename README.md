@@ -1,7 +1,7 @@
 # Computer Vision Master
-University: Universitat Autònoma de Barcelona
-Subject: M5 Visual Recognition
-Team number: 07
+- University: Universitat Autònoma de Barcelona
+- Subject: M5 Visual Recognition
+- Team number: 07
 
 ## Members
 - Marc Grau (mgraugal@gmail.com)
