@@ -20,5 +20,8 @@ Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
 - Week 3: Object detection
   https://docs.google.com/presentation/d/13U6bP7de293dzYGg2hDxrb1G0avuuknWLXXqld0XJSc/edit?usp=sharing
 - Week 4: Object detection
+  https://docs.google.com/presentation/d/1b2lfVdsAQIWvKVn91t1U2P0ArWU6lN7sQeEBwFc4i4I/edit?usp=sharing
 - Week 5: Image semantic segmentation
+  https://docs.google.com/presentation/d/1n6GLVJBKHYrHsap9NxRhFaoHRneM-YElXpyJ6k2GUUk/edit?usp=sharing
 - Week 6: Image semantic segmentation
+  https://docs.google.com/presentation/d/1uuh2UWdc-UNsiDahuFWqYH3zyfSxUSrR9g7xiE7CoGM/edit?usp=sharing
