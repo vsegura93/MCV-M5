@@ -16,7 +16,7 @@ Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
 
 ## Slides
 - Week 2: Object recognition
-- week 3: Object detection
-- week 4: Object detection
-- week 5: Image semantic segmentation
-- week 6: Image semantic segmentation
+- Week 3: Object detection
+- Week 4: Object detection
+- Week 5: Image semantic segmentation
+- Week 6: Image semantic segmentation
