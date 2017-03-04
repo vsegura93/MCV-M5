@@ -15,7 +15,6 @@
 Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
 
 ## Slides
-- Google slides for Week 1
 - Google slides for Week 2
 - Google slides for Week 3
 - Google slides for Week 4
