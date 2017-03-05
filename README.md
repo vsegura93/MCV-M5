@@ -6,7 +6,7 @@
 ## Members
 - Marc Grau (mgraugal@gmail.com)
 - Marc Carné (marc.carne.herrera@gmail.com)
-- Gonzalez Benito (email)
+- Gonzalez Benito (gonzabenito@gmail.com)
 - Víctor Segura (victor.seguratir@e-campus.uab.cat)
 
 ## Abstract
