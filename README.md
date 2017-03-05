@@ -1,4 +1,4 @@
-# Computer Vision Master
+# Computer Vision Master [mcv.uab.cat](mcv.uab.cat)
 - University: Universitat Autònoma de Barcelona
 - Subject: M5 Visual Recognition
 - Team number: 07
@@ -10,6 +10,7 @@
 - Víctor Segura (victor.seguratir@e-campus.uab.cat)
 
 ## Abstract
+The goal of this project is to learn the basic concepts and techniques to build deep neural networks to detect, segment and recognize specific objects, focusing on images recorded by an on-board vehicle camera for autonomous driving.
 
 ## Report
 Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
