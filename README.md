@@ -1,6 +1,6 @@
 # Computer Vision Master
 - University: Universitat Autònoma de Barcelona
-- Module: M5 Visual Recognition [link module](http://pagines.uab.cat/mcv/content/m5-visual-recognition)
+- Module: M5 Visual Recognition ([link module](http://pagines.uab.cat/mcv/content/m5-visual-recognition))
 - Team number: 07
 
 ## Members
