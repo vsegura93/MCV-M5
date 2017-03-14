@@ -13,7 +13,7 @@
 The goal of this project is to learn the basic concepts and techniques to build deep neural networks to detect, segment and recognize specific objects, focusing on images recorded by an on-board vehicle camera for autonomous driving.
 
 ## Report
-Download the [Overleaf document](https://www.overleaf.com/read/qrjbtzwtjhmx)
+Download the [Overleaf document](https://www.overleaf.com/8453594hzhnyktrtjys#/30542665/)
 
 ## Slides
 - Week 2: Object recognition ([link to google slides](https://docs.google.com/presentation/d/1vxO2lUGGYYm7yVjZjYvC0wNX4iJOQ6GoatuUw1deRxo/edit?usp=sharing))
