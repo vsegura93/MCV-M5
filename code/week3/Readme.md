@@ -12,4 +12,9 @@
   * [ ] Set-up a new experiment file to detect among cars, pedestrians, and trucks on Udacity dataset
   * [ ] Use the YOLOv2 model as before, but increment the number of epochs to 40
   * [ ] Analyze the problems of the dataset as it is. Propose (and implement) solutions
-
+- Task(d): Implement a new network
+  * [ ] We provide you a link to a Keras implementation of SSD. Other models will be highly valued
+  * [ ] Integrate the new model into the framework
+  * [ ] Evaluate the new model on TT100K and Udacity
+- Task (e): Boost the performance of your network
+- Task (f): Write the report for Weeks 3/4
