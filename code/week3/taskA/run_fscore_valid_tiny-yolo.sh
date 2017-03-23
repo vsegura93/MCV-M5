@@ -1,1 +1,0 @@
-python ../../eval_detection_fscore.py /datatmp/Datasets/detection/master/Experiments/TT100K_detection/tiny-yolo/weights.hdf5 /data/module5/Datasets/detection/TT100K_detection/valid > log_fscore_valid_tiny-yolo &

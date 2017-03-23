@@ -14,7 +14,7 @@ from tools.yolo_utils import *
 #dataset_name = 'Udacity' #set to TT100K_detection otherwise
 #model_name = 'tiny-yolo' #set to yolo otherwise
 dataset_name = 'TT100K_detection'
-model_name = 'yolo'
+model_name = 'tiny-yolo'
 
 
 # Net output post-processing needs two parameters:
