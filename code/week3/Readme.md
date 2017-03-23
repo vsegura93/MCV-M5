@@ -4,7 +4,7 @@
   * [ ] Calculate the f-score and FPS on train, val and test sets
   * [ ] Evaluate different network architectures:
     * [x] YOLO
-    * [ ] Tiny-yolo
+    * [x] Tiny-yolo
 - Task(b): Read two papers 
   * [ ] You Only Look at Once (YOLO)
   * [ ] Single Shot Multi-Box Detector (SSD), or another
