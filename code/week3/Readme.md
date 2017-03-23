@@ -3,19 +3,19 @@
   * [x] Analyze the dataset
   * [x] Calculate the f-score and FPS on train, val and test sets
 
-  * YOLO architecture
+  YOLO architecture
   
-  |Metric                 | Train         | Test      | Valid    |
-  |:------------:         |:-------------:| :-----:   |:---:     |
-  |  F-score              | 0.782425      | 0.703992  |0.266666  |
-  |  FPS                  | 18.62149      | 15.70237  |10.51580  |
+   |Metric                 | Train         | Test      | Valid    |
+   |:------------:         |:-------------:| :-----:   |:---:     |
+   |  F-score              | 0.782425      | 0.703992  |0.266666  |
+   |  FPS                  | 18.62149      | 15.70237  |10.51580  |
   
-  * Tiny-yolo architecture
+  Tiny-yolo architecture
   
-  |Metric                 | Train         | Test      | Valid    |
-  |:------------:         |:-------------:| :-----:   |:---:     |
-  |  F-score              |               |           |          |
-  |  FPS                  |               |           |          |
+   |Metric                 | Train         | Test      | Valid    |
+   |:------------:         |:-------------:| :-----:   |:---:     |
+   |  F-score              |               |           |          |
+   |  FPS                  |               |           |          |
   
   * [x] Evaluate different network architectures:
     * [x] YOLO
