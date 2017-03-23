@@ -1,1 +1,2 @@
+Location of results on server directory:
 /datatmp/Datasets/detection/master/Experiments/TT100K_detection
