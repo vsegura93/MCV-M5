@@ -5,7 +5,7 @@
   * [x] Evaluate different network architectures:
     * [x] YOLO
     * [x] Tiny-yolo
-- INSTRUCTIONS: There are one folder for each network architecture, taskA/yolo and taskA/tiny-yolo. On each folder, there are 3 files: one   bash script to execute the experiment, one txt file that contains the execution of previous bash script, and results folder, where the result of exepriment is saved. 
+> INSTRUCTIONS: There are one folder for each network architecture, taskA/yolo and taskA/tiny-yolo. On each folder, there are 3 files: one   bash script to execute the experiment, one txt file that contains the execution of previous bash script, and results folder, where the result of exepriment is saved. 
     
 - Task(b): Read two papers 
   * [ ] You Only Look at Once (YOLO)
