@@ -1,7 +1,7 @@
 # Week 3: Object detection
 - Task(a): run the provided code. Use the preconfigured experiment file tt100k_detection.py to detect traffic signs with the YOLOv2 model.
   * [x] Analyze the dataset
-  * [ ] Calculate the f-score and FPS on train, val and test sets
+  * [x] Calculate the f-score and FPS on train, val and test sets
   * [x] Evaluate different network architectures:
     * [x] YOLO
     * [x] Tiny-yolo
