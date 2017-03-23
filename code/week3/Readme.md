@@ -3,7 +3,7 @@
   * [x] Analyze the dataset
   * [x] Calculate the f-score and FPS on train, val and test sets
 
-  | Metrics - Network architecture   | Train         | Test      | Valid    |
+  | Metric  - Network architecture   | Train         | Test      | Valid    |
   | -------------------              |:-------------:| -----:    |---:      |
   | F-score - YOLO                   | 0.782425      | 0.703992  |0.266666  |
   | FPS     - YOLO                   | 18.62149      | 15.70237  |10.51580  |
