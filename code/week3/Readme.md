@@ -14,8 +14,8 @@
   
    |Metric                 | Train         | Test      | Valid    |
    |:------------:         |:-------------:| :-----:   |:---:     |
-   |  F-score              |               |           |          |
-   |  FPS                  |               |           |          |
+   |  F-score              | 0.352980      | 0.273276  |0.138888  |
+   |  FPS                  | 29.82082      | 23.35386  |14.37156  |
   
   * [x] Evaluate different network architectures:
     * [x] YOLO
