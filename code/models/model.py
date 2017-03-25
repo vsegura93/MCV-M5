@@ -51,7 +51,9 @@ class One_Net_Model(Model):
                                             max_q_size=10,
                                             nb_worker=1,
                                             pickle_safe=False)
-            print('   Training finished.')
+            
+
+	    print('   Training finished.')
 
             return hist
         else:
