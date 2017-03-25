@@ -26,7 +26,7 @@
   * [ ] You Only Look at Once (YOLO)
   * [ ] Single Shot Multi-Box Detector (SSD), or another
 - Task(c): Train the network on a different dataset 
-  * [ ] Set-up a new experiment file to detect among cars, pedestrians, and trucks on Udacity dataset
+  * [x] Set-up a new experiment file to detect among cars, pedestrians, and trucks on Udacity dataset
   * [ ] Use the YOLOv2 model as before, but increment the number of epochs to 40
   * [ ] Analyze the problems of the dataset as it is. Propose (and implement) solutions
 - Task(d): Implement a new network
