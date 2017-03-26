@@ -35,5 +35,6 @@
   * [x] We provide you a link to a Keras implementation of SSD. Other models will be highly valued
   * [x] Integrate the new model into the framework
   * [ ] Evaluate the new model on TT100K and Udacity
+> INSTRUCTIONS: New files included on ../models/ssd.py, ../metrics/ssd_training.py, and ../layers/ssd_layers.py. Files modified: model_factory.py and ../metrics/metrics.py. 
 - Task (e): Boost the performance of your network
 - Task (f): Write the report for Weeks 3/4
