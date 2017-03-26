@@ -63,7 +63,7 @@ def SSD300(input_shape, num_classes=45):
     """
     net = {}
     # Block 1
-    input_tensor = input_tensor = Input(shape=input_shape)
+    input_tensor = Input(shape=input_shape)
     print(input_tensor)
     img_size = (input_shape[1], input_shape[0])
     print(img_size)

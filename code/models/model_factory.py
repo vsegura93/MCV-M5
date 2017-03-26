@@ -172,8 +172,8 @@ class Model_Factory():
                                freeze_layers_from=cf.freeze_layers_from, tiny=True)
 #############################################################################
         elif cf.model_name == 'SSD300':
-            in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
-	    model = build_ssd(in_shape, cf.dataset.n_classes,
+            #in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
+            model = build_ssd(in_shape, cf.dataset.n_classes+1,
                               cf.dataset.n_priors,
                               load_pretrained=cf.load_imageNet,
                               freeze_layers_from='base_model')
