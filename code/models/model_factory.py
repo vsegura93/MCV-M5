@@ -1,17 +1,16 @@
-import os
-
 # Keras imports
+import os
 import keras
 from metrics.metrics import cce_flatt, IoU, YOLOLoss, YOLOMetrics, MultiboxLoss
 from keras import backend as K
 from keras.utils.visualize_util import plot
 
 # Classification models
-#from models.lenet import build_lenet
-#from models.alexNet import build_alexNet
+# from models.lenet import build_lenet
+# from models.alexNet import build_alexNet
 from models.vgg import build_vgg
-#from models.resnet import build_resnet50
-#from models.inceptionV3 import build_inceptionV3
+# from models.resnet import build_resnet50
+# from models.inceptionV3 import build_inceptionV3
 
 # Detection models
 from models.yolo import build_yolo
@@ -19,13 +18,13 @@ from models.ssd import build_ssd
 
 # Segmentation models
 from models.fcn8 import build_fcn8
-#from models.unet import build_unet
-#from models.segnet import build_segnet
-#from models.resnetFCN import build_resnetFCN
-#from models.densenetFCN import build_densenetFCN
+# from models.unet import build_unet
+# from models.segnet import build_segnet
+# from models.resnetFCN import build_resnetFCN
+# from models.densenetFCN import build_densenetFCN
 
 # Adversarial models
-#from models.adversarial_semseg import Adversarial_Semseg
+# from models.adversarial_semseg import Adversarial_Semseg
 
 from models.model import One_Net_Model
 
@@ -56,7 +55,7 @@ class Model_Factory():
             # TODO detection : check model, different detection nets may have different losses and metrics
 ##########################################################################################################            
 	    if cf.model_name == 'SSD300': 
-                loss = MultiboxLoss(45, neg_pos_ratio=2.0).compute_loss
+                loss = MultiboxLoss(cf.dataset.n_classes, neg_pos_ratio=2.0).compute_loss
  	        metrics = ['accuracy']
             else:
                 loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
@@ -173,12 +172,13 @@ class Model_Factory():
                                freeze_layers_from=cf.freeze_layers_from, tiny=True)
 #############################################################################
         elif cf.model_name == 'SSD300':
-            #model = build_ssd(in_shape, cf.dataset.n_classes+1,
-            #                  cf.dataset.n_priors,
-            #                  load_pretrained=cf.load_imageNet,
-            #                  freeze_layers_from='base_model')
-	    in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
-	    model = SSD300(in_shape, num_classes=45)
+            in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
+	    model = build_ssd(in_shape, cf.dataset.n_classes,
+                              cf.dataset.n_priors,
+                              load_pretrained=cf.load_imageNet,
+                              freeze_layers_from='base_model')
+	    #in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
+	    #model = SSD300(in_shape, num_classes=45)
 #############################################################################
         else:
             raise ValueError('Unknown model')
