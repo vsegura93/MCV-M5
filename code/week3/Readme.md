@@ -29,7 +29,7 @@
   * [x] Set-up a new experiment file to detect among cars, pedestrians, and trucks on Udacity dataset
   * [x] Use the YOLOv2 model as before, but increment the number of epochs to 40
   * [ ] Analyze the problems of the dataset as it is. Propose (and implement) solutions
-  > INSTRUCTIONS: There are 6 main files: 2 of them, are scripts to execute yolo architecture with Udacity dataseset, one of them with 10 epochs, and the other with 40 epochs. Also, there are 2 log files that contains the execution of previous scripts. Moreover, there are 2 folders with results of the experiments executed by scripts.  
+> INSTRUCTIONS: There are 6 main files: 2 of them, are scripts to execute yolo architecture with Udacity dataseset, one of them with 10 epochs, and the other with 40 epochs. Also, there are 2 log files that contains the execution of previous scripts. Moreover, there are 2 folders with results of the experiments executed by scripts.  
   
 - Task(d): Implement a new network
   * [ ] We provide you a link to a Keras implementation of SSD. Other models will be highly valued
