@@ -37,4 +37,5 @@
   * [x] Evaluate the new model on TT100K and Udacity
 > INSTRUCTIONS: New files included on ../models/ssd.py, ../metrics/ssd_training.py, and ../layers/ssd_layers.py. Files modified: model_factory.py and ../metrics/metrics.py. SSD implemented into framework, but not tested with any dataset. 
 - Task (e): Boost the performance of your network
+> INSTRUCTIONS: Data augmentation applied on images activating next flags on config file: norm_featurewise_std_normalization (divide dst - dataset) and norm_featurewise_center (Substract mean - dataset). The aim is normalize image with respect to dataset to boost the performance of YOLO network.
 - Task (f): Write the report for Weeks 3/4
