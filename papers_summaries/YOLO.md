@@ -1,4 +1,4 @@
-#### Very Deep Convolutional Networks for Large-scale Image Recognition
+#### YOLO
   There is one state-of-the art method that has the best performance in object detection and also is the fastest one. 
 YOLO, you only look once, proposed a method for object detection that consists in a single neural network that having an image
 as input give as a result a bounding box and the probability to belong to each class. The main idea is to explore directly the 
