@@ -1,5 +1,5 @@
 #### YOLO
-  There is one state-of-the art method that has the best performance in object detection and also is the fastest one. 
+There is one state-of-the art method that has the best performance in object detection and also is the fastest one. 
 YOLO, you only look once, proposed a method for object detection that consists in a single neural network that having an image
 as input give as a result a bounding box and the probability to belong to each class. The main idea is to explore directly the 
 feature map and from there obtain bounding boxes and the class where the bounding box belong without having an object candidates
@@ -10,7 +10,7 @@ height and width) and the confidence score for that boxes, resulting from the pr
 on the bounding box and the intersection over union (IoU) with respect to the groundtruth; so if there is not an object in the 
 bounding box the confidence must be equal to 0. 
 
-  Apart from the bounding box the output of the network per cell is a vector of C 
+Apart from the bounding box the output of the network per cell is a vector of C 
 dimensions corresponding to the probability of the objects that the bounding box contains to belong to each class. By this way 
 the output of the network is encoded into a S*S*(B*5)+C tensor, where S corresponds to the grid size, B the number of bounding 
 boxes and C the number of classes. This work has second version that perform the first one and also mostly all the rest of the 
@@ -27,7 +27,7 @@ is that as the bounding box is normalized with respect to the image size, so no 
 network consist basically in convolutional layers to extract the features and fully connected layers that predict the output 
 probabilities and the coordinates. 
   
-  An important issue is that during the training stage, the network is trained for a 
+An important issue is that during the training stage, the network is trained for a 
 classification purpose on ImageNet dataset, with the objective to learn object features and then fine-tune the model to 
 implement the specific task (adding four convolutional layers and two fully connected layers with random initialization).
 Despite the high performance and the fast inference, this technique present some limitations. First of all, YOLO has spatial 
@@ -37,6 +37,6 @@ One limitation but not too worrying is that the error on small and large boundin
 on large bounding box is not bad as small error on small bounding boxes, that has a high effect on the intersection over union, 
 IoU).
 
-  Seen the advantages of YOLO we propose this neural network model to perform object detection in our task, applying it to a 
+Seen the advantages of YOLO we propose this neural network model to perform object detection in our task, applying it to a 
 newer dataset, as is a unified model for object detection, simple to construct and can be trained directly on full images 
 (without any intermediate supervision).
