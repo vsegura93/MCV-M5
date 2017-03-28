@@ -1,0 +1,1 @@
+python ../../train.py -c ../../config/udacity_detection_data_augmentation.py -e yolo --local_path /datatmp/Datasets/detection/ --shared_path /home/master/workspace/mcv-m5/code/week3/taske/ > log_yolo.txt &
