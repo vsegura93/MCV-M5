@@ -12,6 +12,7 @@ dataset_config_path /datatmp/Datasets/detection/Datasets/detection/TT100K_detect
    Found 4243 images belonging to 45 classes
 
  > Creating optimizer...
+   Optimizer: rmsprop. Lr: 1e-05. Rho: 0.9, epsilon=1e-8, clipnorm=10
 
  > Building model...
 (300, 300, 3)
@@ -82,7 +83,7 @@ pool6 (GlobalAveragePooling2D)   (None, 256)           0           conv8_2[0][0]
 ____________________________________________________________________________________________________
 conv4_3_norm_mbox_conf_46 (Convo (None, 38, 38, 138)   636042      conv4_3_norm[0][0]               
 ____________________________________________________________________________________________________
-fc7_mbox_conf (Convolution2D)    (None, 19, 19, 276)   2543892     fc7[0][0]                        
+fc7_mbox_conf_46 (Convolution2D) (None, 19, 19, 276)   2543892     fc7[0][0]                        
 ____________________________________________________________________________________________________
 conv6_2_mbox_conf_46 (Convolutio (None, 10, 10, 276)   1272084     conv6_2[0][0]                    
 ____________________________________________________________________________________________________
@@ -102,7 +103,7 @@ conv8_2_mbox_loc (Convolution2D) (None, 3, 3, 24)      55320       conv8_2[0][0]
 ____________________________________________________________________________________________________
 conv4_3_norm_mbox_conf_flat (Fla (None, 199272)        0           conv4_3_norm_mbox_conf_46[0][0]  
 ____________________________________________________________________________________________________
-fc7_mbox_conf_flat (Flatten)     (None, 99636)         0           fc7_mbox_conf[0][0]              
+fc7_mbox_conf_flat (Flatten)     (None, 99636)         0           fc7_mbox_conf_46[0][0]           
 ____________________________________________________________________________________________________
 conv6_2_mbox_conf_flat (Flatten) (None, 27600)         0           conv6_2_mbox_conf_46[0][0]       
 ____________________________________________________________________________________________________
@@ -165,13 +166,11 @@ mbox_priorbox (Merge)            (None, 7308, 8)       0           conv4_3_norm_
                                                                    conv8_2_mbox_priorbox[0][0]      
                                                                    pool6_mbox_priorbox[0][0]        
 ____________________________________________________________________________________________________
-predictions (Merge)              (None, 7308, 58)      0           mbox_loc_final[0][0]             
-                                                                   mbox_conf_final[0][0]            
-                                                                   mbox_priorbox[0][0]              
+predictions_new (Merge)          (None, 7308, 58)      0                                            
 ====================================================================================================
 Total params: 28,915,122
-Trainable params: 77,100
-Non-trainable params: 28,838,022
+Trainable params: 28,915,122
+Non-trainable params: 0
 ____________________________________________________________________________________________________
    Model: SSD300
    Model: SSD300
@@ -181,4 +180,4 @@ ________________________________________________________________________________
    Plot per epoch
 
  > Training the model...
-Epoch 1/10
+Epoch 1/2

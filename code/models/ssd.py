@@ -19,38 +19,29 @@ from layers.ssd_layers import PriorBox
 
 #############################################################################
 
-def build_ssd(img_shape=(300, 300, 3), n_classes=45, n_priors=5,
+def build_ssd(img_shape=(300, 300, 3), n_classes=80,
                load_pretrained=False,freeze_layers_from='base_model'):
 
     # SSD300 model is only implemented for TF backend
     assert(K.backend() == 'tensorflow')
     print(img_shape)
     model = SSD300(input_shape=img_shape, num_classes=n_classes)
-    base_model_layers = [layer.name for layer in model.layers[0:42]]
+    #base_model_layers = [layer.name for layer in model.layers[0:42]]
     
     if load_pretrained:
       # Rename last layer to not load pretrained weights
       model.layers[-1].name += '_new'
-      model.load_weights('weights/weights_SSD300.hdf5',by_name=True)
+      model.load_weights('../../weights/weights_SSD300.hdf5',by_name=True)
       
     # Freeze some layers
     if freeze_layers_from is not None:
-        if freeze_layers_from == 'base_model':
-            for layer in model.layers:
-                if layer.name in base_model_layers:
-                    layer.trainable = False
-        else:
-            print ('   Freezing from layer 0 to ' + str(freeze_layers_from))
-            for layer in model.layers[:freeze_layers_from]:
-               layer.trainable = False
-            for layer in model.layers[freeze_layers_from:]:
-               layer.trainable = True
+        pass
 
     return model
 
 #############################################################################
 
-def SSD300(input_shape, num_classes=45):
+def SSD300(input_shape, num_classes=80):
     """SSD300 architecture.
 
     # Arguments
@@ -195,8 +186,8 @@ def SSD300(input_shape, num_classes=45):
     flatten = Flatten(name='fc7_mbox_loc_flat')
     net['fc7_mbox_loc_flat'] = flatten(net['fc7_mbox_loc'])
     name = 'fc7_mbox_conf'
-    #if num_classes != 21:
-    #    name += '_{}'.format(num_classes)
+    if num_classes != 21:
+        name += '_{}'.format(num_classes)
     net['fc7_mbox_conf'] = Convolution2D(num_priors * num_classes, 3, 3,
                                          border_mode='same',
                                          name=name)(net['fc7'])

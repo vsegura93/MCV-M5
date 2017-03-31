@@ -1,7 +1,7 @@
 # Keras imports
 import os
 import keras
-from metrics.metrics import cce_flatt, IoU, YOLOLoss, YOLOMetrics, MultiboxLoss
+from metrics.metrics import cce_flatt, IoU, YOLOLoss, YOLOMetrics, SSDLoss, SSDMetrics
 from keras import backend as K
 from keras.utils.visualize_util import plot
 
@@ -48,18 +48,35 @@ class Model_Factory():
                             cf.dataset.n_channels)
             loss = 'categorical_crossentropy'
             metrics = ['accuracy']
-        elif cf.dataset.class_mode == 'detection':
-            in_shape = (cf.dataset.n_channels,
-                        cf.target_size_train[0],
-                        cf.target_size_train[1])
             # TODO detection : check model, different detection nets may have different losses and metrics
+        elif cf.dataset.class_mode == 'detection':
+            if "yolo" in cf.model_name:
+              in_shape = (cf.dataset.n_channels,
+                          cf.target_size_train[0],
+                          cf.target_size_train[1])
+              # TODO detection : check model, different detection nets may have different losses and metrics
+              loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
+              metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors)]
+            elif "SSD300" in cf.model_name:
+              in_shape = (cf.target_size_train[0],
+                          cf.target_size_train[1],
+                          cf.dataset.n_channels,)
+              loss = SSDLoss(cf.dataset.n_classes)
+              metrics = [SSDMetrics()]
 ##########################################################################################################            
-	    if cf.model_name == 'SSD300': 
-                loss = MultiboxLoss(cf.dataset.n_classes, neg_pos_ratio=2.0).compute_loss
- 	        metrics = ['accuracy']
-            else:
-                loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
-                metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors)]
+#        elif cf.dataset.class_mode == 'detection':
+#	          if cf.model_name == 'SSD300':
+#                in_shape = (cf.target_size_train[0],
+#                            cf.target_size_train[1],
+#                            cf.dataset.n_channels)
+#                loss =SSDLoss(cf.dataset.n_classes)
+# 	              metrics = ['accuracy']
+#            elif "yolo" in cf.model_name:
+#                in_shape = (cf.dataset.n_channels,
+#                            cf.target_size_train[0],
+#                            cf.target_size_train[1])
+#                loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
+#                metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors)]
 ##########################################################################################################
             
         elif cf.dataset.class_mode == 'segmentation':
@@ -172,13 +189,9 @@ class Model_Factory():
                                freeze_layers_from=cf.freeze_layers_from, tiny=True)
 #############################################################################
         elif cf.model_name == 'SSD300':
-            #in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
             model = build_ssd(in_shape, cf.dataset.n_classes+1,
-                              cf.dataset.n_priors,
                               load_pretrained=cf.load_imageNet,
-                              freeze_layers_from='base_model')
-	    #in_shape = (in_shape[1], in_shape[2], in_shape[0]) 
-	    #model = SSD300(in_shape, num_classes=45)
+                              freeze_layers_from=cf.freeze_layers_from)
 #############################################################################
         else:
             raise ValueError('Unknown model')

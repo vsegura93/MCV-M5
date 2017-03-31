@@ -1,12 +1,20 @@
-"""Some utils for SSD."""
+"""Propriety of Team 3"""
 
 import numpy as np
+import pickle
+import urllib
+import os
 import tensorflow as tf
 
+"""
+    SSD utilities
+    from: https://github.com/rykov8/ssd_keras
+"""
+
+"""Some utils for SSD."""
 
 class BBoxUtility(object):
     """Utility class to do some stuff with bounding boxes and priors.
-
     # Arguments
         num_classes: Number of classes including background.
         priors: Priors and variances, numpy tensor of shape (num_priors, 8),
@@ -14,16 +22,21 @@ class BBoxUtility(object):
         overlap_threshold: Threshold to assign box to a prior.
         nms_thresh: Nms threshold.
         top_k: Number of total bboxes to be kept per image after nms step.
-
     # References
         https://arxiv.org/abs/1512.02325
     """
     # TODO add setter methods for nms_thresh and top_K
     def __init__(self, num_classes, priors=None, overlap_threshold=0.5,
-                 nms_thresh=0.45, top_k=400):
-        self.num_classes = num_classes
-        self.priors = priors
-        self.num_priors = 0 if priors is None else len(priors)
+                 nms_thresh=0.45, top_k=400, sess=False):
+        self.num_classes = num_classes+1
+
+        # get default priors (https://github.com/rykov8/ssd_keras/raw/master/prior_boxes_ssd300.pkl)
+        if not os.path.isfile("prior_boxes_ssd300.pkl"):
+            print('   Downloading SSD priors')
+            urllib.urlretrieve("https://github.com/rykov8/ssd_keras/raw/master/prior_boxes_ssd300.pkl", "prior_boxes_ssd300.pkl")
+        
+        self.priors = pickle.load(open('prior_boxes_ssd300.pkl', 'rb'))
+        self.num_priors = 0 if self.priors is None else len(self.priors)
         self.overlap_threshold = overlap_threshold
         self._nms_thresh = nms_thresh
         self._top_k = top_k
@@ -32,7 +45,8 @@ class BBoxUtility(object):
         self.nms = tf.image.non_max_suppression(self.boxes, self.scores,
                                                 self._top_k,
                                                 iou_threshold=self._nms_thresh)
-        self.sess = tf.Session(config=tf.ConfigProto(device_count={'GPU': 0}))
+        if sess:
+            self.sess = tf.Session(config=tf.ConfigProto())
 
     @property
     def nms_thresh(self):
@@ -56,12 +70,37 @@ class BBoxUtility(object):
                                                 self._top_k,
                                                 iou_threshold=self._nms_thresh)
 
+
+    def ssd_build_gt_batch(self, batch_gt,image_shape):
+
+        # First convert batch_gt to the format required by assign_boxes 
+        # boxes: Box, numpy tensor of shape (num_boxes, 4 + num_classes), num_classes without background
+
+        targets = []
+
+        for i, gt in enumerate(batch_gt):
+            n_boxes = gt.shape[0]
+            boxes = np.zeros((n_boxes, 4+self.num_classes-1)) # -1 to not count background
+            for j, box in enumerate(gt):
+                coords = box[1:] # [xcenter, ycenter, width, height]
+                # the code expects [xmin, ymin, xmax, ymax]
+                coords[0] = box[1] - box[3]/2
+                coords[1] = box[2] - box[4]/2
+                coords[2] = box[1] + box[3]/2
+                coords[3] = box[2] + box[4]/2
+                boxes[j,0:4] = coords
+                one_hot = np.zeros(self.num_classes-1) # -1 to not count background
+                one_hot[int(box[0])] = 1.
+                boxes[j,4:] = one_hot
+            y = self.assign_boxes(boxes)
+            targets.append(y)
+
+        return np.array(targets)
+
     def iou(self, box):
         """Compute intersection over union for the box with all priors.
-
         # Arguments
             box: Box, numpy tensor of shape (4,).
-
         # Return
             iou: Intersection over union,
                 numpy tensor of shape (num_priors).
@@ -83,15 +122,14 @@ class BBoxUtility(object):
 
     def encode_box(self, box, return_iou=True):
         """Encode box for training, do it only for assigned priors.
-
         # Arguments
             box: Box, numpy tensor of shape (4,).
             return_iou: Whether to concat iou to encoded values.
-
         # Return
             encoded_box: Tensor with encoded box
                 numpy tensor of shape (num_priors, 4 + int(return_iou)).
         """
+
         iou = self.iou(box)
         encoded_box = np.zeros((self.num_priors, 4 + return_iou))
         assign_mask = iou > self.overlap_threshold
@@ -117,11 +155,9 @@ class BBoxUtility(object):
 
     def assign_boxes(self, boxes):
         """Assign boxes to priors for training.
-
         # Arguments
             boxes: Box, numpy tensor of shape (num_boxes, 4 + num_classes),
                 num_classes without background.
-
         # Return
             assignment: Tensor with assigned boxes,
                 numpy tensor of shape (num_boxes, 4 + num_classes + 8),
@@ -134,6 +170,7 @@ class BBoxUtility(object):
         assignment[:, 4] = 1.0
         if len(boxes) == 0:
             return assignment
+
         encoded_boxes = np.apply_along_axis(self.encode_box, 1, boxes[:, :4])
         encoded_boxes = encoded_boxes.reshape(-1, self.num_priors, 5)
         best_iou = encoded_boxes[:, :, -1].max(axis=0)
@@ -152,12 +189,10 @@ class BBoxUtility(object):
 
     def decode_boxes(self, mbox_loc, mbox_priorbox, variances):
         """Convert bboxes from local predictions to shifted priors.
-
         # Arguments
             mbox_loc: Numpy array of predicted locations.
             mbox_priorbox: Numpy array of prior boxes.
             variances: Numpy array of variances.
-
         # Return
             decode_bbox: Shifted priors.
         """
@@ -187,7 +222,6 @@ class BBoxUtility(object):
     def detection_out(self, predictions, background_label_id=0, keep_top_k=200,
                       confidence_threshold=0.01):
         """Do non maximum suppression (nms) on prediction results.
-
         # Arguments
             predictions: Numpy array of predicted values.
             num_classes: Number of classes for prediction.
@@ -196,7 +230,6 @@ class BBoxUtility(object):
                 after nms step.
             confidence_threshold: Only consider detections,
                 whose confidences are larger than a threshold.
-
         # Return
             results: List of predictions for every picture. Each prediction is:
                 [label, confidence, xmin, ymin, xmax, ymax]
@@ -233,3 +266,38 @@ class BBoxUtility(object):
                 results[-1] = results[-1][argsort]
                 results[-1] = results[-1][:keep_top_k]
         return results
+
+# For metrics
+class BoundBox:
+    def __init__(self, classes):
+        self.minx, self.miny = float(), float()
+        self.maxx, self.maxy = float(), float()
+        self.c = float()
+        self.class_num = classes
+        self.probs = np.zeros((classes,))
+
+def overlap(x1min,x1max,x2min,x2max):
+    l1 = x1min;
+    l2 = x2min;
+    left = max(l1, l2)
+    r1 = x1max;
+    r2 = x2max;
+    right = min(r1, r2)
+    return right - left;
+
+def box_intersection(a, b):
+    w = overlap(a.xmin, a.xmax, b.xmin, b.xmax);
+    h = overlap(a.ymin, a.ymax, b.ymin, b.ymax);
+    if w < 0 or h < 0: return 0;
+    area = w * h;
+    return area;
+
+def box_union(a, b):
+    i = box_intersection(a, b);
+    a_area = (a.xmax-a.xmin) * (a.ymax-a.ymin)
+    b_area = (b.xmax-b.xmin) * (b.ymax-b.ymin)
+    u = a_area + b_area - i;
+    return u;
+
+def box_iou(a, b):
+    return box_intersection(a, b) / box_union(a, b);
