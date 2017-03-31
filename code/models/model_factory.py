@@ -1,11 +1,7 @@
 # Keras imports
-<<<<<<< HEAD
 import os
 import keras
 from metrics.metrics import cce_flatt, IoU, YOLOLoss, YOLOMetrics, SSDLoss, SSDMetrics
-=======
-from metrics.metrics import cce_flatt, IoU, YOLOLoss, YOLOMetrics
->>>>>>> 5f5337b1763ccb852700dc98047d2ce022fa97ec
 from keras import backend as K
 from keras.utils.visualize_util import plot
 
@@ -54,7 +50,6 @@ class Model_Factory():
             metrics = ['accuracy']
             # TODO detection : check model, different detection nets may have different losses and metrics
         elif cf.dataset.class_mode == 'detection':
-<<<<<<< HEAD
             if "yolo" in cf.model_name:
               in_shape = (cf.dataset.n_channels,
                           cf.target_size_train[0],
@@ -83,15 +78,6 @@ class Model_Factory():
 #                loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
 #                metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors)]
 ##########################################################################################################
-            
-=======
-            in_shape = (cf.dataset.n_channels,
-                        cf.target_size_train[0],
-                        cf.target_size_train[1])
-            # TODO detection : check model, different detection nets may have different losses and metrics
-            loss = YOLOLoss(in_shape, cf.dataset.n_classes, cf.dataset.priors)
-            metrics = [YOLOMetrics(in_shape, cf.dataset.n_classes, cf.dataset.priors)]
->>>>>>> 5f5337b1763ccb852700dc98047d2ce022fa97ec
         elif cf.dataset.class_mode == 'segmentation':
             if K.image_dim_ordering() == 'th':
                 if variable_input_size:
@@ -117,11 +103,7 @@ class Model_Factory():
     def make(self, cf, optimizer=None):
         if cf.model_name in ['lenet', 'alexNet', 'vgg16', 'vgg19', 'resnet50',
                              'InceptionV3', 'fcn8', 'unet', 'segnet',
-<<<<<<< HEAD
                              'segnet_basic', 'resnetFCN', 'yolo', 'tiny-yolo','SSD300']:
-=======
-                             'segnet_basic', 'resnetFCN', 'yolo', 'tiny-yolo']:
->>>>>>> 5f5337b1763ccb852700dc98047d2ce022fa97ec
             if optimizer is None:
                 raise ValueError('optimizer can not be None')
 
@@ -204,15 +186,12 @@ class Model_Factory():
                                cf.dataset.n_priors,
                                load_pretrained=cf.load_imageNet,
                                freeze_layers_from=cf.freeze_layers_from, tiny=True)
-<<<<<<< HEAD
 #############################################################################
         elif cf.model_name == 'SSD300':
             model = build_ssd(in_shape, cf.dataset.n_classes+1,
                               load_pretrained=cf.load_imageNet,
                               freeze_layers_from=cf.freeze_layers_from)
 #############################################################################
-=======
->>>>>>> 5f5337b1763ccb852700dc98047d2ce022fa97ec
         else:
             raise ValueError('Unknown model')
 
