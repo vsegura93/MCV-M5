@@ -1056,12 +1056,16 @@ class DirectoryIterator(Iterator):
         elif self.class_mode == 'detection':
             # TODO detection: check model, other networks may expect a different batch_y format and shape
             # YOLOLoss expects a particular batch_y format and shape
+<<<<<<< HEAD
 #########################################################################################################
             if "yolo" in self.model_name:
                 batch_y = yolo_build_gt_batch(batch_y, self.image_shape, self.nb_class)
             elif "ssd" in self.model_name:
                 batch_y = self.ssd_generator.ssd_build_gt_batch(batch_y, self.image_shape)
 #########################################################################################################
+=======
+            batch_y = yolo_build_gt_batch(batch_y, self.image_shape, self.nb_class)
+>>>>>>> 5f5337b1763ccb852700dc98047d2ce022fa97ec
         elif self.class_mode == None:
             return batch_x
 

@@ -364,3 +364,4 @@ def SSDMetrics():
     return {'avg_iou': tf.reduce_mean(np.asarray([2]))}
 
   return _SSDMetrics
+

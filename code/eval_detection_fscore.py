@@ -9,17 +9,12 @@ from keras.preprocessing import image
 
 from models.yolo import build_yolo
 from tools.yolo_utils import *
-#############################################################################
 from models.ssd import build_ssd
 from tools.ssd_utils import *
-#############################################################################
 
 # Input parameters to select the Dataset and the model used
-#dataset_name = 'Udacity' #set to TT100K_detection otherwise
-#model_name = 'tiny-yolo' #set to yolo otherwise
-dataset_name = 'TT100K_detection'
-model_name = 'SSD300'
-
+dataset_name = 'Udacity' #set to TT100K_detection otherwise
+model_name = 'tiny-yolo' #set to yolo otherwise
 
 # Net output post-processing needs two parameters:
 detection_threshold = 0.6 # Min probablity for a prediction to be considered
@@ -58,6 +53,7 @@ else:
                load_pretrained=False,freeze_layers_from='base_model',
                tiny=tiny_yolo)
 #############################################################################
+
 model.load_weights(sys.argv[1])
 
 
