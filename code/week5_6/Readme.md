@@ -9,8 +9,8 @@
    * [ ] Another paper of free choice
 
  - Task (c): Train the network on a different dataset 
-   * [ ] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
-   * [ ] Use the FCN8 model as before
+   * [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
+   * [x] Use the FCN8 model as before
    
  - Task (d): Implement a new network 
    * [ ] Select one network from the state of the art (SegnetVGG, DeepLab, ResnetFCN, ...)
