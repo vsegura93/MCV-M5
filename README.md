@@ -16,4 +16,4 @@ The goal of this project is to learn the basic concepts and techniques to build 
 Download the [Overleaf document](https://www.overleaf.com/8453594hzhnyktrtjys#/30542665/)
 
 ## Slides
-See project presentation [Google slides](https://docs.google.com/presentation/d/1n6GLVJBKHYrHsap9NxRhFaoHRneM-YElXpyJ6k2GUUk/edit?usp=sharing))
+See project presentation [Google slides](https://docs.google.com/presentation/d/1n6GLVJBKHYrHsap9NxRhFaoHRneM-YElXpyJ6k2GUUk/edit?usp=sharing)
