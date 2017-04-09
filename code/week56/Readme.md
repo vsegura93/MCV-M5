@@ -12,6 +12,7 @@
  - Task (c): Train the network on a different dataset 
    * [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
    * [x] Use the FCN8 model as before
+> INSTRUCTIONS: There are 2 files and 1 folder: one bash script to execute the experiment, one txt file that contains the execution of previous bash script, and one results folder where are the results of experiments executed. We choose Cityscapes as dataset to compute previous experiments.
    
  - Task (d): Implement a new network 
    * [ ] Select one network from the state of the art (SegnetVGG, DeepLab, ResnetFCN, ...)
