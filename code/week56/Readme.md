@@ -8,6 +8,7 @@
  - Task (b): Read two papers 
    * [x] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
    * [x] Another paper of free choice
+> INSTRUCTIONS: papers are summarieze on root directory /papers_summaries
 
  - Task (c): Train the network on a different dataset 
    * [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
