@@ -17,6 +17,7 @@ from models.yolo import build_yolo
 from models.ssd import build_ssd
 
 # Segmentation models
+from models.segnet import build_segnet
 from models.fcn8 import build_fcn8
 # from models.unet import build_unet
 # from models.segnet import build_segnet
@@ -134,6 +135,11 @@ class Model_Factory():
             model = build_fcn8(in_shape, cf.dataset.n_classes, cf.weight_decay,
                                freeze_layers_from=cf.freeze_layers_from,
                                #path_weights='weights/pascal-fcn8s-dag.mat')
+                               path_weights=None)
+        #added segnet
+        elif cf.model_name == 'segnet':
+            model = build_segnet(in_shape, cf.dataset.n_classes, cf.weight_decay,
+                               freeze_layers_from=cf.freeze_layers_from,
                                path_weights=None)
         elif cf.model_name == 'unet':
             model = build_unet(in_shape, cf.dataset.n_classes, cf.weight_decay,

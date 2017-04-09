@@ -87,7 +87,7 @@ def BottleConv(X, growth_rate, dpt, index, i, l2_reg):
  
 	X = Convolution2D(growth_rate, 1,1, border_mode='same', W_regularizer=l2(l2_reg), name='1x1_Convolution_'+str(index)+ str(i))(X)
  
-	X = BatchNormalization(gamma_regularizer=l2(l2_reg),                          beta_regularizer=l2(l2_reg), name='BatchNormalization_'+str(index)+ str(i))(X)
+	X = BatchNormalization(gamma_regularizer=l2(l2_reg),beta_regularizer=l2(l2_reg), name='BatchNormalization_'+str(index)+ str(i))(X)
  
 	X = Convolution2D(growth_rate, 3, 3, border_mode='same', W_regularizer=l2(l2_reg),name='Convolution_'+str(index)+ str(i))(X)
  

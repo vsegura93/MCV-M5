@@ -1,0 +1,1 @@
+python ../../train.py -c ../../config/segnet_segmentation.py -e segnet --local_path /datatmp/Datasets/segmentation/ --shared_path /data/module5/ > log_segnet.txt &
