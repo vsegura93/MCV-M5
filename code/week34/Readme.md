@@ -25,6 +25,7 @@
 - Task (b): Read two papers 
   * [x] You Only Look at Once (YOLO)
   * [x] Single Shot Multi-Box Detector (SSD), or another
+> INSTRUCTIONS: papers are summarieze on root directory /papers_summaries
 - Task (c): Train the network on a different dataset 
   * [x] Set-up a new experiment file to detect among cars, pedestrians, and trucks on Udacity dataset
   * [x] Use the YOLOv2 model as before, but increment the number of epochs to 40
