@@ -6,8 +6,8 @@
 > INSTRUCTIONS: There are 2 files and 1 folder: one bash script to execute the experiment, one txt file that contains the execution of previous bash script, and one results folder where are the results of experiments executed.
   
  - Task (b): Read two papers 
-   * [ ] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
-   * [ ] Another paper of free choice
+   * [x] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
+   * [x] Another paper of free choice
 
  - Task (c): Train the network on a different dataset 
    * [x] Set-up a new experiment file to image semantic segmentation on another dataset (Cityscapes, KITTI,  Synthia, ...)
@@ -15,10 +15,10 @@
 > INSTRUCTIONS: There are 2 files and 1 folder: one bash script to execute the experiment, one txt file that contains the execution of previous bash script, and one results folder where are the results of experiments executed. We choose Cityscapes as dataset to compute previous experiments.
    
  - Task (d): Implement a new network 
-   * [ ] Select one network from the state of the art (SegnetVGG, DeepLab, ResnetFCN, ...)
-   * [ ] Integrate the new model into the framework
-   * [ ] Evaluate the new model on CamVid. Train from scratch and/or fine-tune
+   * [x] Select one network from the state of the art (SegnetVGG, DeepLab, ResnetFCN, ...)
+   * [x] Integrate the new model into the framework
+   * [x] Evaluate the new model on CamVid. Train from scratch and/or fine-tune
    
- - Task (e): Boost the performance of your network
+ - [x] Task (e): Boost the performance of your network
  
- - Task (f): Write the report for Weeks 5/6
+ - [x]  Task (f): Write the report for Weeks 5/6
