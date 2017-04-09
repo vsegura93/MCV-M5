@@ -3,6 +3,7 @@
 - Task (a): Run the provided code. Use the preconfigured experiment file (camvid_segmentation.py) to segment objects with the FCN8 model
    * [x]  Analyze the dataset
    * [x] Evaluate on train, val and test sets
+> INSTRUCTIONS: There are 2 files and 1 folder: one bash script to execute the experiment, one txt file that contains the execution of previous bash script, and one results folder where are the results of experiments executed.
   
  - Task (b): Read two papers 
    * [ ] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
