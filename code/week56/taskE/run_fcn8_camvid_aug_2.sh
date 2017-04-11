@@ -1,0 +1,1 @@
+python ../../train.py -c ../../config/camvid_segmentation.py -e FCN8 --local_path /datatmp/Datasets/segmentation/ --shared_path /home/master/workspace/mcv-m5/code/week56/taskE > log_fcn8_camvid_aug2.txt &

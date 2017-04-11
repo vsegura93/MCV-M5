@@ -47,7 +47,7 @@ seed_test                    = 1924            # Random seed for the testing shu
 optimizer                    = 'rmsprop'       # Optimizer
 learning_rate                = 0.0001          # Training learning rate
 weight_decay                 = 0.              # Weight decay or L2 parameter norm penalty
-n_epochs                     = 1000            # Number of epochs during training
+n_epochs                     = 600             # Number of epochs during training
 
 # Callback save results
 save_results_enabled         = False           # Enable the Callback
@@ -74,8 +74,8 @@ plotHist_enabled             = True            # Enable the Callback
 plotHist_verbose             = 0               # Verbosity of the callback
 
 # Callback LR decay scheduler
-lrDecayScheduler_enabled     = False           # Enable the Callback
-lrDecayScheduler_epochs      = [5, 10, 20]     # List of epochs were decay is applied or None for all epochs
+lrDecayScheduler_enabled     = True           # Enable the Callback
+lrDecayScheduler_epochs      = [100, 300, 450]     # List of epochs were decay is applied or None for all epochs
 lrDecayScheduler_rate        = 2               # Decay rate (new_lr = lr / decay_rate). Usually between 2 and 10.
 
 # Data augmentation for training and normalization
@@ -92,14 +92,14 @@ cb_weights_method                  = None   # Label weight balance [None | 'medi
 
 # Data augmentation for training
 da_rotation_range                  = 0      # Rnd rotation degrees 0-180
-da_width_shift_range               = 0.0    # Rnd horizontal shift
+da_width_shift_range               = 2.0    # Rnd horizontal shift
 da_height_shift_range              = 0.0    # Rnd vertical shift
 da_shear_range                     = 0.0    # Shear in radians
-da_zoom_range                      = 0.0    # Zoom
+da_zoom_range                      = 2.0    # Zoom
 da_channel_shift_range             = 0.     # Channecf.l shifts
 da_fill_mode                       = 'constant'  # Fill mode
 da_cval                            = 0.     # Void image value
-da_horizontal_flip                 = False  # Rnd horizontal flip
+da_horizontal_flip                 = True  # Rnd horizontal flip
 da_vertical_flip                   = False  # Rnd vertical flip
 da_spline_warp                     = False  # Enable elastic deformation
 da_warp_sigma                      = 10     # Elastic deformation sigma
