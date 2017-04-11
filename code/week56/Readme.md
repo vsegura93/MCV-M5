@@ -7,7 +7,7 @@
   
  - Task (b): Read two papers 
    * [x] Fully convolutional networks for semantic segmentation (Long et al. CVPR, 2015)
-   * [x] Another paper of free choice
+   * [x] Another paper of free choice: SegNet architecture
 > INSTRUCTIONS: papers are summarieze on root directory /papers_summaries
 
  - Task (c): Train the network on a different dataset 
