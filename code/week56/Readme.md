@@ -22,6 +22,6 @@
 > INSTRUCTIONS: There are 2 files and 1 folder on folder taskD: one bash script to execute the experiment, one txt file that contains the execution of previous bash script, and one results folder where are the results of experiments executed. We choose SegnetVGG as network to compute previous experiment.
    
  - [x] Task (e): Boost the performance of your network
-> INSTRUCTIONS: Implementation of SegNet architecture. Evaluation of performance on Camvid dataset, trained from scratch. Folder of results and scripts of execution of experiments are located on folder taskE.
+> INSTRUCTIONS: Implementation of SegNet architecture. Evaluation of performance on Camvid dataset, trained from scratch. Folder of results and scripts of execution of experiments are located on folder taskE. Main file included to implement architecture: models/segnet.py.
  
  - [x]  Task (f): Write the report for Weeks 5/6
