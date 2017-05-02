@@ -14,7 +14,7 @@ the SSD predicts category (class) scores and box size adjustments (with respect 
 filters applied to the feature maps. As the method is applied at different feature maps, makes predictions at different scales.
 
 As in YOLO a single network performs the detection task, so the train can be done end-to-end, without any intermediate loss.
-Just giving the input image and the ground truth boxes the network can learn itself to detect objects. The most interesting think
+Just giving the input image and the ground truth boxes the network can learn itself to detect objects. The most interesting thing
 about this method is that is performed at different scales so from a truncated base network (from the VGG 16 network architecture),
 a set of convolutional layers were added, giving smaller feature maps each time. This requires to specify at train stage to which
 scale the ground truth bounding box belongs to. Although the performance is increased with analyse different scales, we have to 
